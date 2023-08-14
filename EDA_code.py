@@ -58,6 +58,23 @@ len(Train_data.family.unique())
 
 # there are 33 unique families - Family is product family or category, example - Home care, Sea foof, liquor, wine, beer
 
+Train_data.sales.min()
+Train_data.sales.max()
+
+# sales is prediction variable, y variable
+
+Train_data.onpromotion.min()
+Train_data.onpromotion.max()
+len(Train_data.onpromotion.unique())
+
+""" unclear about the 'onpromotion' variable, 
+expected it to be a binary variable indicative of presence or absence of promotion """
+
+Store_data = pd.read_csv("C:/Users/prach/OneDrive/Desktop/Time series sales data/stores.csv")
+
+# merging stores data and test data - left join with intention of getting additional colum values on train data
+
+Train_merged_data=Train_data.merge(Store_data, how='left', on=None, left_on="store_nbr", right_on="store_nbr", left_index=False, right_index=False, sort=False, suffixes=('_x', '_y'), copy=None, indicator=False, validate=None)
 
 
 
